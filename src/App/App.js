@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import fakeDB from "../fakedb"
 import Sidebar from "../Sidebar/Sidebar"
+import Header from "../Header/Header"
+import "./App.css"
 import {Route, Link} from 'react-router-dom';
 
 
@@ -17,7 +19,13 @@ class App extends Component {
   }
 
   render(){
-    return <Sidebar projects={this.getProjects(this.state.projects)}/>
+    return (
+      <div className="full">
+        <Header/>
+        <Sidebar projects={this.getProjects(this.state.projects)}/>
+        
+      </div>
+    )
   }
 }
 

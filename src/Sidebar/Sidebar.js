@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './Sidebar.css'
 import Projects from "./Projects/Projects"
 
 class Sidebar extends Component {
