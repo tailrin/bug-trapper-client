@@ -7,8 +7,8 @@ class Projects extends Component{
     }
     
     renderProjects(projects){
-        return projects.map(project => {
-            return <div id={project.name}>{project.name}</div>
+        return projects.map((project, i) => {
+            return <div id={project.name}>{project.name} key={i}</div>
         })
     }
 
