@@ -1,3 +1,4 @@
+
 const fakeDB = {
     issues: [
         {
@@ -5,28 +6,32 @@ const fakeDB = {
             projectId: 1,
             description: "test",
             dateModified: "today",
-            assignedTo: "user1"
+            dateReported: "yesterday",
+            status: "Active"
         },
         {
             id: 2,
             projectId: 1,
             description: "test",
             dateModified: "today",
-            assignedTo: "user1"
+            dateReported: "yesterday",
+            status: "Active"
         },
         {
             id: 3,
             projectId: 1,
             description: "test",
             dateModified: "today",
-            assignedTo: "user1"
+            dateReported: "yesterday",
+            status: "Active"
         },
         {
             id: 4,
             projectId: 1,
             description: "test",
             dateModified: "today",
-            assignedTo: "user1"
+            dateReported: "yesterday",
+            status: "Active"
         },
     ],
 

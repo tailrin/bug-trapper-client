@@ -25,7 +25,7 @@ class App extends Component {
         <Header/>
         <div className="bottom-wrapper">
           <Sidebar projects={this.getProjects(this.state.projects)}/>
-          <Main/>
+          <Main issues={this.state.issues}/>
         </div>
       </div>
     )
