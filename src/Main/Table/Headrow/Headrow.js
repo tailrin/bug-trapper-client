@@ -7,7 +7,7 @@ class Headrow extends Component {
 	columnNames = ["Id", "Description", "Date Reported", "Date Last Worked", "Status"]
 
 	renderColumns = columnNames => {
-		return columnNames.map((columnName, i) => <Headcell className={columnName.split(" ").join("-")} columnName={columnName} key={i}/>)
+		return columnNames.map((columnName, i) => <Headcell className={columnName.split(" ").join("-").toLowerCase()} columnName={columnName} key={i}/>)
 	}
 
 	render(){

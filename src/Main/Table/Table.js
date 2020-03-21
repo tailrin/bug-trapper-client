@@ -6,14 +6,18 @@ import	Row from './Row/Row';
 class Table extends Component {
 
 	generateRows = issues => {
-		issues.map((issue, i) => <Row issue={issue} key={i}/>)
+		return issues.map((issue, i) => <Row issue={issue} key={i}/>)
 	}
 
 	render(){
 		return (
 			<table>
-				<Headrow/>
-				{this.generateRows(this.props.issues)}
+				<thead>
+					<Headrow/>
+				</thead>
+				<tbody>
+					{this.generateRows(this.props.issues)}
+				</tbody>
 			</table>
 		)
 	}

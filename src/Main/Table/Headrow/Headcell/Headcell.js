@@ -5,7 +5,7 @@ class Headcell extends Component {
 
 	render(){
 		return (
-		<th>{this.props.columnName}</th>
+		<th className={this.props.className}>{this.props.columnName}</th>
 		)
 	}
 }
