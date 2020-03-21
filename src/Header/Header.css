@@ -18,3 +18,8 @@ h1 {
     display: inline;
     padding: 0%;
 }
+
+#logo {
+    text-decoration: none;
+    color: black;
+}

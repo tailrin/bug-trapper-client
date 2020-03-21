@@ -5,11 +5,18 @@ class Projects extends Component{
     state ={
         expanded: false
     }
+
+    
     
     renderProjects(projects){
-        return projects.map((project, i) => {
-            return <div id={project.name}>{project.name} key={i}</div>
-        })
+        return (
+            <>
+                {projects.map((project, i) => {
+                    return <div className="project" id={project.name}  key={i}>{project.name}</div>
+                })}
+                <button type="button">Add Project</button>
+            </>
+        )
     }
 
     handleClick = () => {
@@ -20,8 +27,9 @@ class Projects extends Component{
     render(){
     return <div id="projects" onClick={this.handleClick}>Projects
         {
-            this.state.expanded && this.renderProjects(this.props.projects)
+            this.state.expanded && this.renderProjects(this.props.projects) 
         }
+        
     </div>
     }
 }

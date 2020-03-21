@@ -1,11 +1,18 @@
 import React, {Component} from 'react';
-import './Nav.css'
+import FormLink from './FormLink/FormLink';
+import './Nav.css';
 
 class Nav extends Component {
 
+    renderNavLinks(){
+        if(!!window.localStorage.jwt){
+            
+        }
+    }
+    
     render(){
         return (
-            <nav>Login / Sign Up</nav>
+            <nav><FormLink name="Login"/> / <FormLink name="Sign Up"/> </nav>
         )
     }
 }
