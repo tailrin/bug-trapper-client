@@ -4,16 +4,17 @@ import './Nav.css';
 
 class Nav extends Component {
 
+    
+
     renderNavLinks(){
-        if(!!window.localStorage.jwt){
-            
+        if(this.props.loggedIn){
+            return <nav><span onClick={this.props.logout}className="link-sim" >Logout</span></nav>
         }
+        return <nav><FormLink name="Login"/> / <FormLink name="Sign Up"/> </nav>
     }
     
     render(){
-        return (
-            <nav><FormLink name="Login"/> / <FormLink name="Sign Up"/> </nav>
-        )
+        return this.renderNavLinks()
     }
 }
 

@@ -11,11 +11,21 @@ import {Route} from 'react-router-dom';
 
 class App extends Component {
   state = {
-    userId: 1,
+    userId: null,
     projects: [...fakeDB.projects],
     issues:[...fakeDB.issues],
-    sortBy: "date",
     loggedIn: false
+  }
+
+  handleLogin = (userId) => {
+    const loggedInStatus = !this.state.loggedIn
+    this.setState({loggedIn: loggedInStatus, userId: userId})
+  }
+
+  logout = () => {
+    window.localStorage.removeItem('jwt')
+    const loggedInStatus = !this.state.loggedIn
+    this.setState({loggedIn: loggedInStatus})
   }
 
   getProjects(){
@@ -36,9 +46,11 @@ class App extends Component {
   render(){
     return (
       <div className="full">
-        <Header/>
+        <Header loggedIn={this.state.loggedIn} logout={this.logout}/>
         {this.renderBottom()}
-        <Route exact path="/login" component={Login}/>
+        <Route exact path="/login" render={({history}) => {
+          return <Login history={history} handleLogin={this.handleLogin}/>
+        }} />
         <Route exact path="/SignUp" component={SignUp}/>
       </div>
     )

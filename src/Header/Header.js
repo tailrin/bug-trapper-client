@@ -11,7 +11,7 @@ class Header extends Component {
                 <div className="logo-wrapper">
                     <h1><Link to="/" id="logo">Bug Trapper</Link></h1>
                 </div>
-                <Nav/>
+                <Nav loggedIn={this.props.loggedIn} logout={this.props.logout}/>
             </header>
         )
     }

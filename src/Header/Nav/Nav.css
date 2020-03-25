@@ -7,3 +7,9 @@ nav {
     border-top: 2px solid darkgray;
     border-bottom: 2px solid darkgray;
 }
+
+.link-sim{
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
