@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom'
 import config from '../config'
 import {Link} from 'react-router-dom'
 import './SignUp.css';
@@ -30,7 +29,7 @@ class SignUp extends Component {
 			body: JSON.stringify(data)
 			};
 			fetch(`${config.API}/api/users`, options).then(res => res.json()).then(() => {
-				this.props.history.push('/login')
+				this.props.history.push('/ThankYou')
 			})
 		}
 	}
@@ -52,7 +51,7 @@ class SignUp extends Component {
 	}
 
 	validatePassword = password => {
-		const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&])[\S]+/
+		const REGEX_UPPER_LOWER_NUMBER_SPECIAL = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&])[\S]+/
 		if (password.length < 8) {
 			return <p className="error">Password must be longer than 8 characters</p>
 		}

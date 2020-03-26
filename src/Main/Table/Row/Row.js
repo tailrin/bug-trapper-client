@@ -10,8 +10,8 @@ class Row extends Component {
 			<tr>
 				<Cell className="id" cellData={issue.id}/>
 				<Cell className="description" cellData={issue.description}/>
-				<Cell className="date-reported" cellData={issue.dateReported}/>
-				<Cell className="date-last-worked" cellData={issue.dateModified}/>
+				<Cell className="date-reported" cellData={issue.date_created}/>
+				<Cell className="date-last-worked" cellData={issue.date_modified}/>
 				<Cell className="status" cellData={issue.status}/>
 			</tr>
 		)
