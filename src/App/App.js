@@ -9,7 +9,7 @@ import AddIssue from '../AddIssue/AddIssue';
 import ThankYou from '../ThankYou/ThankYou';
 import config from '../config';
 import "./App.css";
-import {Route} from 'react-router-dom';
+import {Route, Redirect} from 'react-router-dom';
 
 
 class App extends Component {
