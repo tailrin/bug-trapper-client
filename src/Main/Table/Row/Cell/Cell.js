@@ -1,12 +1,23 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './Cell.css';
 
 class Cell extends Component {
+	static defaultProps = {
+		className: "",
+		cellData: "",
+		issueId: ""
+	}
+	
+	generateCell = () => {
+		if(this.props.className === "description"){
+			return <td className={this.props.className}><Link to={`/Issues/${this.props.issueId}`}>{this.props.cellData}</Link></td>
+		}
+		return <td className={this.props.className}>{this.props.cellData}</td>
+	}
 
 	render(){
-		return (
-		<td className={this.props.className}>{this.props.cellData}</td>
-		)
+		return this.generateCell()
 	}
 }
 
