@@ -72,12 +72,12 @@ class Issue extends Component {
 				<form onSubmit={this.handleSubmit}>
 					<div id="top-line">
 						<span>Date Created: {this.state.date_created.split('T').join(' ').split('.')[0]}</span>
-						<span>Status
-							<select onChange={this.handleStatusChange}>
+						<label htmlFor="status" id="status-label">Status:  
+							<select onChange={this.handleStatusChange} id="status">
 								<option value="Active">Active</option>
 								<option value="Closed">Closed</option>
 							</select>
-						</span>
+						</label>
 					</div>
 					<span>Date Modified: {this.state.date_modified.split('T').join(' ').split('.')[0]}</span><br/>
 					<p>Description:<br/>

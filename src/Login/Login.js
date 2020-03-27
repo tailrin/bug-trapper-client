@@ -7,7 +7,7 @@ class Login extends Component {
 	state = {
 		user_name: "",
 		password: "",
-		err: false
+		err: ""
 	}
 
 	handleInput = event => {
@@ -35,6 +35,8 @@ class Login extends Component {
 				payload = JSON.parse(payload)
 				this.props.handleLogin(payload.user_id);
 				this.props.history.push('/')
+			}else{
+				this.setState({err: res.error})
 			}
 		})
 
@@ -42,7 +44,9 @@ class Login extends Component {
 
 	render(){
 		return (
+
 			<form id="login" onSubmit={this.handleSubmit} > 
+				<p className="error">{this.state.err}</p><br/>
 				<div className="user-name-wrapper">
 					<label htmlFor="user-name" className="login-label">User Name: </label>
 					<input type="text"  onChange={this.handleInput} id="user-name" required className="login-inputs"/>
@@ -56,6 +60,7 @@ class Login extends Component {
 					<Link to="/" id="cancel">Cancel</Link>
 				</div>
 			</form>
+
 		)
 	}
 }

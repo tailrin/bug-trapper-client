@@ -8,7 +8,7 @@ class Sidebar extends Component {
     render(){
         return (
             <div className="sidebar">
-                <Projects addProject={this.props.addProject} projects={this.props.projects}/>
+                <Projects projects={this.props.projects} filterByProject={this.props.filterByProject}/>
             </div>
         )
     }

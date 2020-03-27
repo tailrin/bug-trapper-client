@@ -7,7 +7,7 @@ import	Row from './Row/Row';
 class Table extends Component {
 
 	generateRows = issues => {
-		return issues.map((issue, i) => <Row issue={issue} key={i}/>)
+		return issues.map((issue, i) => <Row issue={issue} key={i} getProjectNameById={this.props.getProjectNameById}/>)
 	}
 
 	render(){
@@ -21,7 +21,7 @@ class Table extends Component {
 						{this.generateRows(this.props.issues)}
 					</tbody>
 				</table>
-				<Link to='/AddIssue'>Add Folder</Link>
+				<Link to="/AddIssue">Add Issue</Link>
 			</>
 		)
 	}

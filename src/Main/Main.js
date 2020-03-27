@@ -14,7 +14,7 @@ class Main extends Component {
     render(){
         return (
             <main>
-                <Table issues={this.props.issues}/>
+                <Table issues={this.props.issues} userId={this.props.userId} getProjectNameById={this.props.getProjectNameById}/>
             </main>
         )
     }

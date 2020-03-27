@@ -1,0 +1,15 @@
+table {
+    width: 100%;
+}
+
+@media screen and (max-width: 800px){
+    .date-modified{
+        display: none
+    }
+}
+
+@media screen and (max-width: 600px){
+    .date-created{
+        display: none
+    }
+}

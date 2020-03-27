@@ -9,10 +9,12 @@ class Row extends Component {
 		return (
 			<tr>
 				<Cell className="id" cellData={issue.id}/>
+				<Cell className="Project Name" cellData={this.props.getProjectNameById(issue.project_id)}/>
 				<Cell className="description" cellData={issue.description} issueId={issue.id}/>
-				<Cell className="date-reported" cellData={issue.date_created}/>
-				<Cell className="date-last-worked" cellData={issue.date_modified}/>
+				<Cell className="date-created" cellData={issue.date_created}/>
+				<Cell className="date-modified" cellData={issue.date_modified}/>
 				<Cell className="status" cellData={issue.status}/>
+				
 			</tr>
 		)
 	}

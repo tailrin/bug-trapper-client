@@ -4,7 +4,7 @@ import './Headrow.css';
 
 class Headrow extends Component {
 
-	columnNames = ["Id", "Description", "Date Reported", "Date Last Worked", "Status"]
+	columnNames = ["Id", "Project Name", "Description", "Date Created", "Date Modified", "Status"]
 
 	renderColumns = columnNames => {
 		return columnNames.map((columnName, i) => {
