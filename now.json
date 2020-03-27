@@ -1,7 +1,7 @@
 {
     "build": {
       "env": {
-        "VARIABLE_NAME": "REACT_APP_API_ENDPOINT"
+        "REACT_APP_API_ENDPOINT": "@REACT_APP_API_ENDPOINT"
       }
     }
   }
