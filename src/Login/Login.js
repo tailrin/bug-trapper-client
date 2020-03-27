@@ -47,6 +47,10 @@ class Login extends Component {
 
 			<form id="login" onSubmit={this.handleSubmit} > 
 				<p className="error">{this.state.err}</p><br/>
+				<p>Credentials for dummy account<br/>
+					User Name: user<br/>
+					Password: P@ssword1
+				</p>
 				<div className="user-name-wrapper">
 					<label htmlFor="user-name" className="login-label">User Name: </label>
 					<input type="text"  onChange={this.handleInput} id="user-name" required className="login-inputs"/>
