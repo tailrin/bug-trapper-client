@@ -10,7 +10,6 @@ class Projects extends Component{
     }
     handleDelete = event => {
         const options = JSON.parse(JSON.stringify(config.getOptions('delete')))
-        console.log(parseInt(event.target.id.split(':')[1]))
         options.body = JSON.stringify({id: parseInt(event.target.id.split(':')[1])})
         fetch(`${config.API}/projects`, options).then(res => res.json()).then(res => console.log(res))
     }
