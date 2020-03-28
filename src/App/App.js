@@ -70,6 +70,7 @@ class App extends Component {
 
   logout = () => {
     window.localStorage.removeItem('jwt')
+    window.localStorage.removeItem('state')
     this.setState({
       userId: null,
       projects: [],
