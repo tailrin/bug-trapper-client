@@ -116,8 +116,9 @@ class App extends Component {
  
 
   render(){
-    if(this.state.loggedIn){
-      this.state.userId = JSON.parse(Buffer.from(window.localStorage.jwt.split('.')[1], 'base64').toString('ascii')).user_id 
+    if(this.state.loggedIn && this.state.userId.length === 0){
+      userId = JSON.parse(Buffer.from(window.localStorage.jwt.split('.')[1], 'base64').toString('ascii')).user_id 
+      this.setState({userId: userId})
     }
     return (
       <div className="full" >
