@@ -153,8 +153,6 @@ class App extends Component {
             <Route exact path="/AddIssue" render={({history}) => {
               return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
             }}/>
-            
-            
             <Route component={PageNotFound}/>
           </Switch>
           

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Note from '../Note/Note';
 import config from '../config';
 import './Issue.css';
-import Sidebar from '../Sidebar/Sidebar';
 
 class Issue extends Component {
 	static defaultProps ={
