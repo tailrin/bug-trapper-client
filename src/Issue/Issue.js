@@ -85,9 +85,14 @@ class Issue extends Component {
 		})
 	}
 
+	goHome =()=>{
+		this.props.history.push('/')
+	}
+
 	render(){
 		return (
 			<main>
+				<button onClick={this.goHome}>Home</button>
 				<form onSubmit={this.handleSubmit}>
 					<div id="top-line">
 						<span>Date Created: {this.state.date_created.split('T').join(' ').split('.')[0]}</span>

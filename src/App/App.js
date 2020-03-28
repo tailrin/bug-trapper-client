@@ -15,17 +15,31 @@ import {Route} from 'react-router-dom';
 
 
 class App extends Component {
-  state = {
-    userId: "",
-    projects: [],
-    issues: [],
-    loggedIn: !!window.localStorage.jwt,
-    checkedProjects: false,
-    checkedIssues: false,
-    filterByProject: false,
-    filteredIssues: [],
-    projectToFilter: ""
+  constructor(props) {
+    super(props);
+    const initialState = {
+      userId: "",
+      projects: [],
+      issues: [],
+      loggedIn: !!window.localStorage.jwt,
+      checkedProjects: false,
+      checkedIssues: false,
+      filterByProject: false,
+      filteredIssues: [],
+      projectToFilter: ""
+    }           
+    this.state = JSON.parse(localStorage.getItem('state'))
+        ? JSON.parse(localStorage.getItem('state'))
+        : initialState
+    const orginial = this.setState;     
+    this.setState = function() {
+      let arguments0 = arguments[0];
+      let arguments1 = () => (arguments[1], localStorage.setItem('state', JSON.stringify(this.state)));
+      orginial.bind(this)(arguments0, arguments1);
+    };
+    
   }
+  
 
   componentDidUpdate = () => {
     const options = config.getOptions('get')
@@ -46,11 +60,7 @@ class App extends Component {
           this.setState({projects: [...response], checkedProjects: true, issues: [...res], checkedIssues: true})
         });
       });
-    }
-    
-  }
-  componentDidMount = () => {
-    window.addEventListener('load', this.reloadUser())
+    }  
   }
 
   handleLogin = (userId) => {
@@ -116,10 +126,7 @@ class App extends Component {
  
 
   render(){
-    if(this.state.loggedIn && this.state.userId.length === 0){
-      userId = JSON.parse(Buffer.from(window.localStorage.jwt.split('.')[1], 'base64').toString('ascii')).user_id 
-      this.setState({userId: userId})
-    }
+    
     return (
       <div className="full" >
         <Header loggedIn={this.state.loggedIn} logout={this.logout} reloadUser={this.reloadUser}/>
@@ -139,8 +146,8 @@ class App extends Component {
           <Route exact path="/issues/:issue_id" render={
             () => <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
           }/>
-          <Route exact path="/issues/:issue_id" render={({match}) => {
-            return <Issue getById={this.getById} match={match}/>
+          <Route exact path="/issues/:issue_id" render={({match, history}) => {
+            return <Issue getById={this.getById} match={match} history={history}/>
           }}/>
         </div>
       </div>
