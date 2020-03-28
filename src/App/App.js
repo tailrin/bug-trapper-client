@@ -11,7 +11,8 @@ import ThankYou from '../ThankYou/ThankYou';
 import Main from '../Main/Main';
 import config from '../config';
 import "./App.css";
-import {Route} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 
 class App extends Component {
@@ -132,24 +133,28 @@ class App extends Component {
       <div className="full" >
         <Header loggedIn={this.state.loggedIn} logout={this.logout} reloadUser={this.reloadUser}/>
         <div className="bottom-wrapper">
-          {this.renderBottom()}
-          <Route exact path="/login" render={({history}) => {
-            return <Login history={history} handleLogin={this.handleLogin}/>
-          }} />
-          <Route exact path="/SignUp" component={SignUp}/>
-          <Route exact path="/AddProject" render={({history}) => {
-            return <AddProject history={history} userId={this.state.userId} reloadUser={this.reloadUser}/>
-          }}/>
-          <Route exact path="/ThankYou" component={ThankYou}/>
-          <Route exact path="/AddIssue" render={({history}) => {
-            return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
-          }}/>
+          <Switch>
+            {this.renderBottom()}
+            <Route exact path="/login" render={({history}) => {
+              return <Login history={history} handleLogin={this.handleLogin}/>
+            }} />
+            <Route exact path="/SignUp" component={SignUp}/>
+            <Route exact path="/AddProject" render={({history}) => {
+              return <AddProject history={history} userId={this.state.userId} reloadUser={this.reloadUser}/>
+            }}/>
+            <Route exact path="/ThankYou" component={ThankYou}/>
+            <Route exact path="/AddIssue" render={({history}) => {
+              return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
+            }}/>
+            
+            <Route exact path="/issues/:issue_id" render={({match, history}) => {
+              return <Issue getById={this.getById} match={match} history={history}/>
+            }}/>
+            <Route component={PageNotFound}/>
+          </Switch>
           <Route exact path="/issues/:issue_id" render={
-            () => <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
+              () => <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
           }/>
-          <Route exact path="/issues/:issue_id" render={({match, history}) => {
-            return <Issue getById={this.getById} match={match} history={history}/>
-          }}/>
         </div>
       </div>
     )

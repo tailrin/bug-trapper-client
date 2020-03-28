@@ -10,6 +10,9 @@ class Issue extends Component {
 			params: {
 				issue_id: ""
 			}
+		},
+		history: {
+			push: () => {}
 		}
 	}
 

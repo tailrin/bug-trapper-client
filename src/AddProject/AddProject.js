@@ -4,6 +4,15 @@ import config from '../config';
 import './AddProject.css';
 
 class AddProject extends Component {
+
+	static defaultProps = {
+		userId: "",
+		history: {
+			push: () => {}
+		},
+		reloadUser: () => {}
+	}
+
 	state= {
 		name: "",
 		user_id: this.props.userId
