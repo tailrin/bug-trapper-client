@@ -3,6 +3,14 @@ import './Note.css';
 
 class Note extends Component {
 
+	static defaultProps = {
+		className: "",
+		note: {
+			date_created: "",
+			content: ""
+		}
+	}
+
 	render(){
 		return (
 			<div className={this.props.className}>

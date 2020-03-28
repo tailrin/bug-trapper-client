@@ -6,6 +6,11 @@ import	Row from './Row/Row';
 
 class Table extends Component {
 
+	static defaultProps = {
+		getProjectNameById: () => {return ""},
+		issues: []
+	}
+
 	generateRows = issues => {
 		return issues.map((issue, i) => <Row issue={issue} key={i} getProjectNameById={this.props.getProjectNameById}/>)
 	}

@@ -5,7 +5,12 @@ import './Issue.css';
 
 class Issue extends Component {
 	static defaultProps ={
-		getById: () => {}
+		getById: () => {},
+		match: {
+			params: {
+				issue_id: ""
+			}
+		}
 	}
 
 	state = {

@@ -4,6 +4,18 @@ import './Row.css';
 
 class Row extends Component {
 
+	static defaultProps = {
+		issue: {
+			id: "",
+			project_id: "",
+			description: "",
+			date_created: "",
+			date_modified: "",
+			status: ""
+		},
+		getProjectNameById: () => {return ""}
+	}
+
 	generateCells =() => {
 		const issue = this.props.issue
 		return (

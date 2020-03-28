@@ -4,6 +4,16 @@ import {Link} from 'react-router-dom'
 import './AddIssue.css';
 
 class AddIssue extends Component {
+
+	static defaultProps = {
+		reloadUser: () => {},
+		history: {
+			push: () => {}
+		},
+		userId: "",
+		projects: [],
+	}
+
 	state ={
 		description: "",
 		project_id: null,

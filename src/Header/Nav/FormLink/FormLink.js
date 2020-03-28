@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom';
 import './FormLink.css';
 
 class FormLink extends Component {
+	static defaultProps = {
+		name: ""
+	}
 
 	render(){
 		return (
