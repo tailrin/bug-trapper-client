@@ -113,10 +113,10 @@ class App extends Component {
       return (
         <>
           <Route exact path="/" render={
-            () => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject}/>
+            ({history}) => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject} history={history}/>
           }/>
           <Route exact path="/" render={
-            () => <Main issues={this.state.issues} userId={this.state.userId} getProjectNameById={this.getProjectNameById}/>
+            ({history}) => <Main issues={this.state.issues} userId={this.state.userId} getProjectNameById={this.getProjectNameById} history={history}/>
           }/>
         </>
       )

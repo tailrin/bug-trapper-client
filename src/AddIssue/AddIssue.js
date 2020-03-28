@@ -43,11 +43,16 @@ class AddIssue extends Component {
 		return this.props.projects.map(project => {return <option value={project.id}  key={project.id}>{project.name}</option>})
 	}
 
+	componentDidMount = () => {
+		config.checkForAuth(this.props.history)
+	}
+
 	setProjectId = event => {
 		this.setState({project_id: event.target.value})
 	}
 
 	render(){
+		config.checkForAuth(this.props.history)
 		return (
 			<form onSubmit={this.handleSubmit} id="add-issue-form">
 				<label htmlFor="projects"> Select a Project</label>

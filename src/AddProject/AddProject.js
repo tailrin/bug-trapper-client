@@ -19,11 +19,16 @@ class AddProject extends Component {
 		})
 	}
 
+	componentDidMount = () => {
+		config.checkForAuth(this.props.history)
+	}
+
 	handleInput = event => {
 		this.setState({name: event.target.value})
 	}
 
 	render(){
+		config.checkForAuth(this.props.history)
 		return (
 			<form id="add-project-form" onSubmit={this.handleSubmit}>
 				<label htmlFor="name" >Project Name:</label><br/>

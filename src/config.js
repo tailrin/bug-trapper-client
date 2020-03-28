@@ -8,5 +8,11 @@ export default {
 			  'Authorization': `bearer ${window.localStorage.jwt}`
 			}
 		}
-    }
+	},
+	
+	checkForAuth: history => {
+		if(!window.localStorage.jwt){
+			history.push('/Login')
+		}
+	}
 }
