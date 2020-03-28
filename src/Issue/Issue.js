@@ -27,7 +27,7 @@ class Issue extends Component {
 
 	componentDidMount = () => {
 		config.checkForAuth(this.props.history)
-		if(!window.localStorage.jwt){return}
+		if(!window.sessionStorage.jwt){return}
 		const options = config.getOptions('get')
 		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
 			const {date_created, date_modified, description, status} = res.issue

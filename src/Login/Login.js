@@ -29,7 +29,7 @@ class Login extends Component {
 			body: JSON.stringify(data)
 		}).then(res => res.json()).then(res => {
 			if(!!res.authToken){
-				window.localStorage.setItem('jwt', res.authToken)
+				window.sessionStorage.setItem('jwt', res.authToken)
 				let payload = res.authToken.split('.')[1];
 				payload = Buffer.from(payload, 'base64').toString('ascii');
 				payload = JSON.parse(payload)

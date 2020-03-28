@@ -5,13 +5,13 @@ export default {
 			method: method.toUpperCase(),
 			headers: {
 			  'Content-Type': 'application/json',
-			  'Authorization': `bearer ${window.localStorage.jwt}`
+			  'Authorization': `bearer ${window.sessionStorage.jwt}`
 			}
 		}
 	},
 	
 	checkForAuth: history => {
-		if(!window.localStorage.jwt){
+		if(!window.sessionStorage.jwt){
 			history.push('/Login')
 		}
 	}

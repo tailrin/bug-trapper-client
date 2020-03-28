@@ -22,20 +22,20 @@ class App extends Component {
       userId: "",
       projects: [],
       issues: [],
-      loggedIn: !!window.localStorage.jwt,
+      loggedIn: !!window.sessionStorage.jwt,
       checkedProjects: false,
       checkedIssues: false,
       filterByProject: false,
       filteredIssues: [],
       projectToFilter: ""
     }           
-    this.state = JSON.parse(localStorage.getItem('state'))
-        ? JSON.parse(localStorage.getItem('state'))
+    this.state = JSON.parse(sessionStorage.getItem('state'))
+        ? JSON.parse(sessionStorage.getItem('state'))
         : initialState
     const orginial = this.setState;     
     this.setState = function() {
       let arguments0 = arguments[0];
-      let arguments1 = () => (arguments[1], localStorage.setItem('state', JSON.stringify(this.state)));
+      let arguments1 = () => (arguments[1], sessionStorage.setItem('state', JSON.stringify(this.state)));
       orginial.bind(this)(arguments0, arguments1);
     };
     
@@ -70,8 +70,8 @@ class App extends Component {
   }
 
   logout = () => {
-    window.localStorage.removeItem('jwt')
-    window.localStorage.removeItem('state')
+    window.sessionStorage.removeItem('jwt')
+    window.sessionStorage.removeItem('state')
     this.setState({
       userId: null,
       projects: [],
