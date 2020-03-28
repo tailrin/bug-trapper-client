@@ -90,7 +90,7 @@ class App extends Component {
       return (
         <>
           <Route exact path="/" render={
-            () => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject}/>
+            () => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject} reloadUser={this.reloadUser}/>
           }/>
           <Route exact path="/" render={
             () => <Main issues={this.state.filteredIssues} userId={this.state.userId} getProjectNameById={this.getProjectNameById}/>
@@ -136,7 +136,7 @@ class App extends Component {
             return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
           }}/>
           <Route exact path="/issues/:issue_id" render={
-            () => <Sidebar projects={this.state.projects}/>
+            () => <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
           }/>
           <Route exact path="/issues/:issue_id" render={({match}) => {
             return <Issue getById={this.getById} match={match}/>

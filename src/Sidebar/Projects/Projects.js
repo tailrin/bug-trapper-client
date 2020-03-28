@@ -8,10 +8,20 @@ class Projects extends Component{
     state ={
         expanded: false
     }
+
+    static defaultProps = {
+        projects: [],
+        reloadUser: () => {},
+        filterByProject: () => {}
+    }
+
     handleDelete = event => {
         const options = JSON.parse(JSON.stringify(config.getOptions('delete')))
         options.body = JSON.stringify({id: parseInt(event.target.id.split(':')[1])})
-        fetch(`${config.API}/projects`, options).then(res => res.json()).then(res => console.log(res))
+        fetch(`${config.API}/projects`, options).then(res => res.json()).then(res => {
+            console.log(res)
+            this.props.reloadUser()
+        })
     }
 
     handleFilter = event => {
