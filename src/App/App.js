@@ -82,6 +82,10 @@ class App extends Component {
     })
   }
 
+  renderSidebar = () => {
+    return <Sidebar projects={this.state.projects} filterByProject={this.filterByProject} reloadUser={this.reloadUser}/>
+  }
+
   getProjectNameById = id => {
     const project = this.state.projects.find(project => project.id === id)
     return project.name
@@ -97,30 +101,21 @@ class App extends Component {
     }
   }
 
-  renderBottom = () => {
-    if(this.state.loggedIn && this.state.filterByProject){
-      return (
-        <>
-          <Route exact path="/" render={
-            () => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject} reloadUser={this.reloadUser}/>
-          }/>
-          <Route exact path="/" render={
-            () => <Main issues={this.state.filteredIssues} userId={this.state.userId} getProjectNameById={this.getProjectNameById}/>
-          }/>
-        </>
-      )
+  getIssues = () => {
+    if(this.state.filterByProject){
+      return this.state.filteredIssues
     }
+    return this.state.issues
+  }
+
+  renderHome = () => {
     if(this.state.loggedIn){
       return (
-        
-        <>
-          <Route exact path="/" render={
-            ({history}) => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject} history={history}/>
-          }/>
-          <Route exact path="/" render={
-            ({history}) => <Main issues={this.state.issues} userId={this.state.userId} getProjectNameById={this.getProjectNameById} history={history}/>
-          }/>
-        </>
+        <Route exact path="/" render={
+            () => <Main issues={this.getIssues()} userId={this.state.userId} getProjectNameById={this.getProjectNameById}>
+              {this.renderSidebar()}
+            </Main>
+        }/>
       )
     } 
     return <Route exact path="/" component={Welcome}/>
@@ -148,7 +143,7 @@ class App extends Component {
             <Route exact path="/AddProject" render={({history}) => {
                 return <AddProject history={history} userId={this.state.userId} reloadUser={this.reloadUser}/>
             }}/>
-            {this.renderBottom()}
+            {this.renderHome()}
             <Route exact path="/login" render={({history}) => {
               return <Login history={history} handleLogin={this.handleLogin}/>
             }} />
