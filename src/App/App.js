@@ -112,6 +112,7 @@ class App extends Component {
     }
     if(this.state.loggedIn){
       return (
+        
         <>
           <Route exact path="/" render={
             ({history}) => <Sidebar projects={this.state.projects} filterByProject={this.filterByProject} history={history}/>
@@ -128,7 +129,7 @@ class App extends Component {
  
 
   render(){
-    
+   
     return (
       <div className="full" >
         <Header loggedIn={this.state.loggedIn} logout={this.logout} reloadUser={this.reloadUser}/>
