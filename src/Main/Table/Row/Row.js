@@ -11,8 +11,8 @@ class Row extends Component {
 				<Cell className="id" cellData={issue.id}/>
 				<Cell className="Project Name" cellData={this.props.getProjectNameById(issue.project_id)}/>
 				<Cell className="description" cellData={issue.description} issueId={issue.id}/>
-				<Cell className="date-created" cellData={issue.date_created}/>
-				<Cell className="date-modified" cellData={issue.date_modified}/>
+				<Cell className="date-created" cellData={issue.date_created.split('T').join(' ').split('.')[0]}/>
+				<Cell className="date-modified" cellData={issue.date_modified.split('T').join(' ').split('.')[0]}/>
 				<Cell className="status" cellData={issue.status}/>
 				
 			</tr>

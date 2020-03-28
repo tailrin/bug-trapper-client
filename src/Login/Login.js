@@ -12,7 +12,7 @@ class Login extends Component {
 
 	handleInput = event => {
 		if(event.target.id === "user-name"){
-			this.setState({user_name: event.target.value})
+			this.setState({user_name: event.target.value.toLowerCase()})
 		} else if(event.target.id === "password"){
 			this.setState({password: event.target.value})
 		} 
