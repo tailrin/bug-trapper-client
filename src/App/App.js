@@ -76,12 +76,12 @@ class App extends Component {
   }
 
   filterByProject = id => {
-    const filterBy = !this.state.filterByProject
+    console.log(this.state.filterByProject && this.state.projectToFilter === id)
     if(this.state.filterByProject && this.state.projectToFilter === id){
-      this.setState({projectToFilter: [], projectToFilter: "", filterByProject: filterBy})
+      this.setState({projectToFilter: [], projectToFilter: "", filterByProject: false})
     }else{
       const filteredIssues = this.state.issues.filter(issue => issue.project_id === id)
-      this.setState({filteredIssues: filteredIssues, projectToFilter: id, filterByProject: filterBy})
+      this.setState({filteredIssues: filteredIssues, projectToFilter: id, filterByProject: true})
     }
   }
 
