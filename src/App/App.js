@@ -148,13 +148,15 @@ class App extends Component {
             }}/>
             
             <Route exact path="/issues/:issue_id" render={({match, history}) => {
-              return <Issue getById={this.getById} match={match} history={history}/>
+              return (
+                <Issue getById={this.getById} match={match} history={history}>
+                  <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
+                </Issue>
+              )
             }}/>
             <Route component={PageNotFound}/>
           </Switch>
-          <Route exact path="/issues/:issue_id" render={
-              () => <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
-          }/>
+          
         </div>
       </div>
     )

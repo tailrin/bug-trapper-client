@@ -96,29 +96,32 @@ class Issue extends Component {
 
 	render(){
 		return (
-			<main>
-				<button onClick={this.goHome}>Home</button>
-				<form onSubmit={this.handleSubmit}>
-					<div id="top-line">
-						<span>Date Created: {this.state.date_created.split('T').join(' ').split('.')[0]}</span>
-						<label htmlFor="status" id="status-label">Status:  
-							<select onChange={this.handleStatusChange} id="status">
-								<option value="Active">Active</option>
-								<option value="Closed">Closed</option>
-							</select>
-						</label>
-					</div>
-					<span>Date Modified: {this.state.date_modified.split('T').join(' ').split('.')[0]}</span><br/>
-					<p>Description:<br/>
-						{this.state.description}
-					</p>
-					<label htmlFor="add-note">Notes:</label><br/>
-					<textarea rows="5" cols="60" id="add-note" onChange={this.handleChangeContent}/>
-					<button>Update</button>
-					
-				</form>
-				{this.renderNotes()}
-			</main>
+			<>
+				{this.props.children.Sidebar}
+				<main>
+					<button onClick={this.goHome}>Home</button>
+					<form onSubmit={this.handleSubmit}>
+						<div id="top-line">
+							<span>Date Created: {this.state.date_created.split('T').join(' ').split('.')[0]}</span>
+							<label htmlFor="status" id="status-label">Status:  
+								<select onChange={this.handleStatusChange} id="status">
+									<option value="Active">Active</option>
+									<option value="Closed">Closed</option>
+								</select>
+							</label>
+						</div>
+						<span>Date Modified: {this.state.date_modified.split('T').join(' ').split('.')[0]}</span><br/>
+						<p>Description:<br/>
+							{this.state.description}
+						</p>
+						<label htmlFor="add-note">Notes:</label><br/>
+						<textarea rows="5" cols="60" id="add-note" onChange={this.handleChangeContent}/>
+						<button>Update</button>
+						
+					</form>
+					{this.renderNotes()}
+				</main>
+			</>
 		)
 	}
 }
