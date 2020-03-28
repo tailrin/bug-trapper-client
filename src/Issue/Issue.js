@@ -95,7 +95,6 @@ class Issue extends Component {
 	}
 
 	render(){
-		console.log(this.props.children)
 		return (
 			<>
 				{this.props.children}
