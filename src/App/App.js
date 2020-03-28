@@ -140,19 +140,19 @@ class App extends Component {
               </Issue>
             )
           }}/>
+          <Route exact path="/AddIssue" render={({history}) => {
+              return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
+          }}/>
+          <Route exact path="/AddProject" render={({history}) => {
+              return <AddProject history={history} userId={this.state.userId} reloadUser={this.reloadUser}/>
+          }}/>
           <Switch>
             {this.renderBottom()}
             <Route exact path="/login" render={({history}) => {
               return <Login history={history} handleLogin={this.handleLogin}/>
             }} />
             <Route exact path="/SignUp" component={SignUp}/>
-            <Route exact path="/AddProject" render={({history}) => {
-              return <AddProject history={history} userId={this.state.userId} reloadUser={this.reloadUser}/>
-            }}/>
             <Route exact path="/ThankYou" component={ThankYou}/>
-            <Route exact path="/AddIssue" render={({history}) => {
-              return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
-            }}/>
             <Route component={PageNotFound}/>
           </Switch>
           
