@@ -45,10 +45,24 @@ class Issue extends Component {
 		options.body = JSON.stringify(data)
 		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
 			this.setState({status: res.status})
+			this.handleDateModified()
+		}).catch(err => {
+			event.target.value = this.state.status
+		})
+	}
+
+	handleDateModified = () => {
+		const data = {
+			field: 'date_modified',
+			field_value: new Date().toISOString()
+		}
+		const options = JSON.parse(JSON.stringify(config.getOptions('put')))
+		options.body = JSON.stringify(data)
+		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
+			this.setState({status: res.status})
+			this.componentDidMount()
 		}).catch(err => {
 			console.log(err)
-			window.alert('Something went wrong unable to change status, please try again later')
-			event.target.value = this.state.status
 		})
 	}
 
