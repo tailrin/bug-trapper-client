@@ -133,10 +133,10 @@ class App extends Component {
           }}/>
           <Route exact path="/ThankYou" component={ThankYou}/>
           <Route exact path="/AddIssue" render={({history}) => {
-            return <AddIssue history={history} userId={this.state.userId} projects={this.getProjects()} reloadUser={this.reloadUser}/>
+            return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
           }}/>
           <Route exact path="/issues/:issue_id" render={
-            () => <Sidebar projects={this.getProjects()}/>
+            () => <Sidebar projects={this.state.projects}/>
           }/>
           <Route exact path="/issues/:issue_id" render={({match}) => {
             return <Issue getById={this.getById} match={match}/>
