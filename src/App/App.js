@@ -133,6 +133,13 @@ class App extends Component {
       <div className="full" >
         <Header loggedIn={this.state.loggedIn} logout={this.logout} reloadUser={this.reloadUser}/>
         <div className="bottom-wrapper">
+          <Route exact path="/issues/:issue_id" render={({match, history}) => {
+            return (
+              <Issue getById={this.getById} match={match} history={history}>
+                <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
+              </Issue>
+            )
+          }}/>
           <Switch>
             {this.renderBottom()}
             <Route exact path="/login" render={({history}) => {
@@ -147,13 +154,7 @@ class App extends Component {
               return <AddIssue history={history} userId={this.state.userId} projects={this.state.projects} reloadUser={this.reloadUser}/>
             }}/>
             
-            <Route exact path="/issues/:issue_id" render={({match, history}) => {
-              return (
-                <Issue getById={this.getById} match={match} history={history}>
-                  <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
-                </Issue>
-              )
-            }}/>
+            
             <Route component={PageNotFound}/>
           </Switch>
           

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Note from '../Note/Note';
 import config from '../config';
 import './Issue.css';
+import Sidebar from '../Sidebar/Sidebar';
 
 class Issue extends Component {
 	static defaultProps ={
@@ -95,9 +96,10 @@ class Issue extends Component {
 	}
 
 	render(){
+		console.log(this.props.children)
 		return (
 			<>
-				{this.props.children.Sidebar}
+				{this.props.children}
 				<main>
 					<button onClick={this.goHome}>Home</button>
 					<form onSubmit={this.handleSubmit}>
