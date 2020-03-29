@@ -26,7 +26,7 @@ class Table extends Component {
 						{this.generateRows(this.props.issues)}
 					</tbody>
 				</table>
-				<Link to="/AddIssue">Add Issue</Link>
+				<Link to="/AddIssue" id="add-issue-link"><img src="/imgs/addIssue.png" alt="plus button" className="add-button-image"/></Link>
 			</>
 		)
 	}

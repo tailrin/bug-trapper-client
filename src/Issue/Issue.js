@@ -99,7 +99,7 @@ class Issue extends Component {
 			<>
 				{this.props.children}
 				<main>
-					<button onClick={this.goHome}>Home</button>
+					<button onClick={this.goHome} id="home-button"><img src="/imgs/home.png" id="home-button-img" alt="home button icon"/></button>
 					<form onSubmit={this.handleSubmit}>
 						<div id="top-line">
 							<span>Date Created: {this.state.date_created.split('T').join(' ').split('.')[0]}</span>

@@ -9,7 +9,7 @@ class Header extends Component {
         return (
             <header>
                 <div className="logo-wrapper">
-                    <h1><Link to="/" id="logo" onClick={this.props.reloadUser}>Bug Trapper</Link></h1>
+                    <h1><img src="/imgs/logo.png" alt="bug in a prison cell" id="logo-img"/><Link to="/" id="logo" onClick={this.props.reloadUser}>Bug Trapper</Link></h1>
                 </div>
                 <Nav loggedIn={this.props.loggedIn} logout={this.props.logout}/>
             </header>

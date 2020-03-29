@@ -52,7 +52,7 @@ class AddIssue extends Component {
 	}
 
 	validateFields = () => {
-		return this.state.project_id === null || this.state.description === ""
+		return this.state.project_id === null || this.state.description.length < 50
 	}
 
 	render(){

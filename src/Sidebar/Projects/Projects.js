@@ -43,7 +43,7 @@ class Projects extends Component{
                         </div>
                     )
                 })}
-                <Link to="/AddProject" className="sim-button">Add Project</Link>
+                <Link to="/AddProject" className="sim-button"><img src="/imgs/addProject.png" id="add-project-img" alt="plus button for add project link"/></Link>
             </>
         )
     }

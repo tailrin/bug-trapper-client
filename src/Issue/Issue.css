@@ -10,3 +10,16 @@ textarea{
     height: 40%;
 }
 
+#home-button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    padding: 0;
+    background-color: darkseagreen;
+    cursor: pointer;
+}
+
+#home-button-img{
+    height: 30px;
+    width: 30px;
+}

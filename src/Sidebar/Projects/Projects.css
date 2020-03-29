@@ -10,34 +10,12 @@
 }
 
 .sim-button{
-    -webkit-appearance: button;
-    -webkit-writing-mode: horizontal-tb !important;
-    writing-mode: horizontal-tb;
-    text-rendering: auto;
-    color: buttontext;;
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-transform: none;
-    text-indent: 0px;
-    text-shadow: none;
-    display: inline-block;
-    text-align: center;
-    align-items: center;
-    cursor: default;
-    background-color: buttonface;
-    box-sizing: border-box;
-    margin: 0em;
-    font: 400 11px system-ui;
-    padding: 4px 7px 0px;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-    border-image: initial;
-    text-decoration: none;
-    /* margin-left: 3%; */
-    width: 100px;
-    font-size: 14px;
-    height: 30px;
+    display: block;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: darkseagreen;
+    margin: 20px 0px 0px 30%;
 }
 
 .project{
@@ -66,4 +44,9 @@
 
 .filter-button{
     width: 80%;
+}
+
+#add-project-img{
+    height: 50px;
+    width: 50px;
 }
