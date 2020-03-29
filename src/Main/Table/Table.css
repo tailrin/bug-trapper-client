@@ -13,3 +13,12 @@ table {
         display: none
     }
 }
+
+@media screen and (max-width: 500px){
+    .status{
+        display: none
+    }
+    .id{
+        display: none;
+    }
+}
