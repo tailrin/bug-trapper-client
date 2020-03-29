@@ -62,7 +62,7 @@ class AddIssue extends Component {
 					</select>
 				
 				<label htmlFor="description">Description of issue:</label><br/>
-				<textarea rows="5" cols="60" id="add-note" onChange={this.handleChangeContent}/><br/>
+				<textarea rows="5" cols="60" id="add-note" onChange={this.handleChangeContent} required/><br/>
 				<div className="button-wrapper">
 					<button type="submit" id="add-issue-button">Add Issue</button>
 					<Link to="/" id="cancel">Cancel</Link>
