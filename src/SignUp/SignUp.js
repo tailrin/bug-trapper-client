@@ -20,7 +20,7 @@ class SignUp extends Component {
 		event.preventDefault();
 		if(!this.checkErr()){
 			const {userName, fullName, password} = this.state
-			const data = {user_name : userName, full_name: fullName, password: password}
+			const data = {user_name : userName.toLowerCase(), full_name: fullName, password: password}
 			const options = {
 				method: 'POST',
             headers: {
@@ -28,8 +28,8 @@ class SignUp extends Component {
 			},
 			body: JSON.stringify(data)
 			};
-			fetch(`${config.API}/api/users`, options).then(res => res.json()).then(() => {
-				this.props.history.push('/ThankYou')
+			fetch(`${config.API}/api/users`, options).then(res => res.json()).then((res) => {
+				console.log(res)
 			})
 		}
 	}

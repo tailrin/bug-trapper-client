@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     width: 80%;
-    height: 80%;
+    height: 500px;
     margin: auto;
     margin-top: 5%;
     align-items: center;
     justify-content: center;
     border: 3px solid lightgray;
     border-radius: 30px;
+
 }
 
 .button-wrapper{
