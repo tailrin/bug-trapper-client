@@ -29,7 +29,7 @@ class SignUp extends Component {
 			body: JSON.stringify(data)
 			};
 			fetch(`${config.API}/api/users`, options).then(res => res.json()).then((res) => {
-				console.log(res)
+				this.props.history.push('/ThankYou')
 			})
 		}
 	}
