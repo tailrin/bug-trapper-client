@@ -9,7 +9,7 @@ class FormLink extends Component {
 
 	render(){
 		return (
-		<span><Link to={`/${this.props.name.split(' ').join('')}`}>{this.props.name}</Link></span>
+		<span><Link to={`/${this.props.name.split(' ').join('')}`} className={this.props.className}>{this.props.name}</Link></span>
 		)
 	}
 }

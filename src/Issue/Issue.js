@@ -115,7 +115,7 @@ class Issue extends Component {
 							{this.state.description}
 						</p>
 						<label htmlFor="add-note">Notes:</label><br/>
-						<textarea rows="5" cols="60" id="add-note" onChange={this.handleChangeContent} required/>
+						<textarea id="add-note" onChange={this.handleChangeContent} required/><br/>
 						<button>Update</button>
 						
 					</form>
