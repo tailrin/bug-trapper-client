@@ -20,12 +20,12 @@ class Row extends Component {
 		const issue = this.props.issue
 		return (
 			<tr>
-				<Cell className="id" cellData={issue.id}/>
-				<Cell className="Project Name" cellData={this.props.getProjectNameById(issue.project_id)}/>
-				<Cell className="description" cellData={issue.description} issueId={issue.id}/>
-				<Cell className="date-created" cellData={issue.date_created.split('T').join(' ').split('.')[0]}/>
-				<Cell className="date-modified" cellData={issue.date_modified.split('T').join(' ').split('.')[0]}/>
-				<Cell className="status" cellData={issue.status}/>
+				<Cell className="id cell" cellData={issue.id}/>
+				<Cell className="project-name cell" cellData={this.props.getProjectNameById(issue.project_id)}/>
+				<Cell className="description cell" cellData={issue.description} issueId={issue.id}/>
+				<Cell className="date-created cell" cellData={issue.date_created.split('T').join(' ').split('.')[0]}/>
+				<Cell className="date-modified cell" cellData={issue.date_modified.split('T').join(' ').split('.')[0]}/>
+				<Cell className="status cell" cellData={issue.status}/>
 				
 			</tr>
 		)

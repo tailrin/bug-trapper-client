@@ -35,9 +35,10 @@ class Projects extends Component{
             <>
                 {this.props.projects.map((project, i) => {
                     return (
-                        <div className="project"  key={i}><button id={`button-for-project:${project.id}`} className="filter-button" onClick={this.handleFilter}>{project.name}</button>
+                        <div className="project"  key={i}>
+                            <button id={`button-for-project:${project.id}`} className="filter-button" onClick={this.handleFilter}>{project.name}</button>
                             <button onClick={this.handleDelete} className="delete-button" id={`${project.name}:${project.id}`}>
-                                Delete
+                                <div className="button-text">Delete</div>
                             </button>
                         </div>
                     )
@@ -55,9 +56,9 @@ class Projects extends Component{
     render(){
         return (
             <>
-                <div id="projects" onClick={this.handleClick}>
+                <button id="projects" onClick={this.handleClick}>
                     <span id="block">Projects</span>
-                </div>
+                </button>
                 {
                     this.state.expanded && this.renderProjects() 
                 }

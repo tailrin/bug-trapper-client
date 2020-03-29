@@ -4,6 +4,9 @@
 
 #projects{
     cursor: pointer;
+    width: 100%;
+    height: 40px;
+    padding-left: 5%;
 }
 
 .sim-button{
@@ -38,16 +41,25 @@
 }
 
 .project{
-    margin-left: 20%;
-    /* height: 50px; */
+    margin: 0px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
 }
 
-/* .delete-button{
+.delete-button{
     height: 100%;
-    width: 10%;
+    width: 20%;
 
-} */
+}
 
-/* .button-text{
+.button-text{
+    margin-top: 60%;
     transform: rotate(-90deg);
-} */
+    text-align: left;
+}
+
+.filter-button{
+    width: 80%;
+}
