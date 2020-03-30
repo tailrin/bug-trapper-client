@@ -13,7 +13,7 @@ Once an account has been created and you are logged in you have the ability to c
 
 ## Bug Trapper API info
 
-### All endpoint except for '/api/users' and '/api/auth/login/' are protected endpoints and thus must have an 'Authorization' header
+### All endpoints except for '/api/users' and '/api/auth/login/' are protected endpoints and thus must have an 'Authorization' header
 
 #### Create New User Endpoint
 
@@ -36,3 +36,7 @@ Once an account has been created and you are logged in you have the ability to c
 #### You can only retrieve issues associated with a particular user and thus must include the query paramater of user_id="your user id here" to get issues
 
 [https://bug-trapper-server.herokuapp.com/issues](https://bug-trapper-server.herokuapp.com/issues)
+
+### Update Issue Endpoint 
+
+[https://bug-trapper-server.herokuapp.com/issues/:issue_id](https://bug-trapper-server.herokuapp.com/issues/:issue_id)
