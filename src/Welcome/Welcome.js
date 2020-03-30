@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import config from '../config';
 import './Welcome.css';
 
 class Welcome extends Component {
+
+	componentDidMount = () => {
+		fetch(config.API).then(res => res.json()).then(res => console.log(res))
+	}
 
 	render(){
 		return (
