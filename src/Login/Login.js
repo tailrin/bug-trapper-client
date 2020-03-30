@@ -38,7 +38,7 @@ class Login extends Component {
 				this.props.handleLogin(payload.user_id);
 				this.props.history.push('/')
 			}else{
-				this.setState({err: res.error})
+				this.setState({err: res.error, loading: false})
 			}
 		})
 		this.setState({loading: true})
@@ -46,8 +46,6 @@ class Login extends Component {
 	}
 
 	render(){
-		let login;
-		if(this.state.loading){login = "Loading"} else {login = "Login"}
 		return (
 
 			<form id="login" onSubmit={this.handleSubmit} > 
@@ -66,7 +64,7 @@ class Login extends Component {
 				</div>
 				<div className="button-wrapper">
 					<button type="submit" id="login-button" disabled={this.state.loading}>
-						{this.state.loading ? <CircleLoader loading={this.state.loading}/>: login}
+						{this.state.loading ? <CircleLoader loading={this.state.loading}/>: "Login"}
 					</button>
 					<Link to="/" id="cancel">Cancel</Link>
 				</div>
