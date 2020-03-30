@@ -101,6 +101,10 @@ class Issue extends Component {
 		this.props.history.push('/')
 	}
 
+	validateNote = () => {
+		return this.state.content.length < 50
+	}
+
 	render(){
 		return (
 			<>
@@ -124,7 +128,8 @@ class Issue extends Component {
 						</p>
 						<label htmlFor="add-note">Notes:</label><br/>
 						<textarea id="add-note" onChange={this.handleChangeContent} required/><br/>
-						<button>Update</button>
+						{this.validateNote() && <p className="error">Note must contain at least 50 character to add note</p>}
+						<button>Add Note</button>
 						
 					</form>
 					{this.renderNotes()}
