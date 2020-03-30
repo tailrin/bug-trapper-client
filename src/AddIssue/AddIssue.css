@@ -55,6 +55,19 @@ textarea{
     height: 40%;
 }
 
+#label-project{
+    width: 60%;
+    margin-bottom: 15px;
+}
+
 #select-project{
-    width: 50%;
+    margin-left: 10px;
+}
+
+#label-title{
+    width: 60%
+}
+
+#title{
+    margin-left: 10px;
 }

@@ -22,7 +22,7 @@ class Row extends Component {
 			<tr>
 				<Cell className="id cell" cellData={issue.id}/>
 				<Cell className="project-name cell" cellData={this.props.getProjectNameById(issue.project_id)}/>
-				<Cell className="description cell" cellData={issue.description} issueId={issue.id}/>
+				<Cell className="title cell" cellData={issue.title} issueId={issue.id}/>
 				<Cell className="date-created cell" cellData={issue.date_created.split('T').join(' ').split('.')[0]}/>
 				<Cell className="date-modified cell" cellData={issue.date_modified.split('T').join(' ').split('.')[0]}/>
 				<Cell className="status cell" cellData={issue.status}/>

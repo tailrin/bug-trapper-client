@@ -22,7 +22,8 @@ class Issue extends Component {
 		description: "",
 		issueNotes: [],
 		status: "",
-		content: ""
+		content: "",
+		title: ""
 	}
 
 	componentDidMount = () => {
@@ -30,13 +31,14 @@ class Issue extends Component {
 		if(!window.sessionStorage.jwt){return}
 		const options = config.getOptions('get')
 		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
-			const {date_created, date_modified, description, status} = res.issue
+			const {date_created, date_modified, description, status, title} = res.issue
 			this.setState({
 				date_created: date_created, 
 				date_modified: date_modified, 
 				description: description, 
 				status: status, 
-				issueNotes: res.notes.reverse()
+				issueNotes: res.notes.reverse(),
+				title: title
 			})
 		})
 
@@ -111,6 +113,9 @@ class Issue extends Component {
 							</label>
 						</div>
 						<span>Date Modified: {this.state.date_modified.split('T').join(' ').split('.')[0]}</span><br/>
+						<label htmlFor="title" >Title: 
+							<input id="title" type="text" value={this.state.text} />
+						</label>
 						<p>Description:<br/>
 							{this.state.description}
 						</p>

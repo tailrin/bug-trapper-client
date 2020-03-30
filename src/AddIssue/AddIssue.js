@@ -18,8 +18,11 @@ class AddIssue extends Component {
 		description: "",
 		project_id: null,
 		status: "Active",
-		user_id: this.props.userId
+		user_id: this.props.userId,
+		title: ""
 	}
+
+	///////////////Event Handlers////////////////
 
 	handleSubmit = event => {
 		event.preventDefault();
@@ -32,42 +35,60 @@ class AddIssue extends Component {
 		}).catch(err => console.log(err))
 
 	}
-	
-
 
 	handleChangeContent = event => {
 		this.setState({description: event.target.value})
 	}
 
+	handleProjectChange = event => {
+		this.setState({project_id: event.target.value})
+	}
+
+	handleTitleChange = event => {
+		this.setState({title: event.target.value})
+	}
+
+	//////////////////Content Generation Methods//////////////////
+
 	generateProjectsOptions =() => {
 		return this.props.projects.map(project => {return <option value={project.id}  key={project.id}>{project.name}</option>})
 	}
+
+	///////////////Input Validation Methods////////////////
+
+	validateDescription = () => {
+		return this.state.description.length < 50
+	}
+
+	validateProject = () => {
+		return this.state.project_id === null
+	}
+
+	validateFields = () => {
+		return this.state.project_id === null || this.state.description.length <50
+	}
+
+	////////////////Life cycle methods/////////////////
 
 	componentDidMount = () => {
 		config.checkForAuth(this.props.history)
 	}
 
-	setProjectId = event => {
-		this.setState({project_id: event.target.value})
-	}
-
-	validateFields = () => {
-		const descriptionLength = this.state.description.length < 10 || this.state.description.length > 25 
-		return this.state.project_id === null || descriptionLength
-	}
-
 	render(){
-		const descriptionLength = this.state.description.length < 10 || this.state.description.length > 25 
 		config.checkForAuth(this.props.history)
 		return (
 			<form onSubmit={this.handleSubmit} id="add-issue-form">
-				{this.state.project_id === null && <p className="error">Project must be selected</p>}
-				<label htmlFor="select-project"> Select a Project</label>
-				<select id="select-project" onChange={this.setProjectId}> 
-					<option>Select a project</option>
-					{this.generateProjectsOptions()}
-				</select>
-				{descriptionLength && <p className="error">Description must be more than ten characters but less than 25 characters</p>}
+				{this.validateProject() && <p className="error">Project must be selected</p>}
+				<label htmlFor="select-project" id="label-project"> Select a Project:
+					<select id="select-project" onChange={this.handleProjectChange}> 
+						<option>Select a project</option>
+						{this.generateProjectsOptions()}
+					</select>
+				</label>
+				<label htmlFor="title" id="label-title">Title of Issue: 
+					<input type="text" id="title" onChange={this.handleTitleChange}/>
+				</label>
+				{this.validateDescription() && <p className="error">Description must be more than 50 characters</p>}
 				<label htmlFor="description">Description of issue:</label><br/>
 				<textarea id="add-note" onChange={this.handleChangeContent} required/><br/>
 				<div className="button-wrapper">

@@ -10,8 +10,8 @@ class Cell extends Component {
 	}
 	
 	generateCell = () => {
-		if(this.props.className === "description cell"){
-			return <td className={this.props.className}><Link to={`/Issues/${this.props.issueId}`}>{this.props.cellData}</Link></td>
+		if(this.props.className === "title cell"){
+			return <td className={this.props.className}><Link to={`/Issues/${this.props.issueId}`}>test data</Link></td>
 		}
 		return <td className={this.props.className}>{this.props.cellData}</td>
 	}
