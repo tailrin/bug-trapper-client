@@ -40,3 +40,8 @@ Once an account has been created and you are logged in you have the ability to c
 ### Update Issue Endpoint 
 
 [https://bug-trapper-server.herokuapp.com/issues/:issue_id](https://bug-trapper-server.herokuapp.com/issues/:issue_id)
+
+
+## Tech Stack Used
+
+#### JavaScript ![JavaScript](https://www.google.com/search?q=javascript+logo&sxsrf=ALeKk01QTmnSUKcKeVcZae8MFC_5PLoNfA:1585607354497&tbm=isch&source=iu&ictx=1&fir=hDOuE3Uh0EiOSM%253A%252CVbcxYzsOQ-AdOM%252C_&vet=1&usg=AI4_-kQ0tyMMEok3vHCmE2U8ufOyJSjwVg&sa=X&ved=2ahUKEwjQsvjYn8PoAhUCbs0KHfS8CckQ9QEwAHoECAcQLg#imgrc=hDOuE3Uh0EiOSM:)
