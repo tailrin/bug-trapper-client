@@ -86,10 +86,14 @@ class Issue extends Component {
 
 	handleSubmit = () => {
 		const options = JSON.parse(JSON.stringify(config.getOptions('post')))
-		options.body = JSON.stringify({content: this.state.content})
+		options.body = JSON.stringify({content: this.state.content, title: this.state.title})
 		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
 			console.log(res)
 		})
+	}
+
+	handleTitleChange = event => {
+		this.setState({title: event.target.value})
 	}
 
 	goHome =()=>{
@@ -113,10 +117,8 @@ class Issue extends Component {
 							</label>
 						</div>
 						<span>Date Modified: {this.state.date_modified.split('T').join(' ').split('.')[0]}</span><br/>
-						<label htmlFor="title" >Title: 
-							<input id="title" type="text" value={this.state.text} />
-						</label>
-						<p>Description:<br/>
+						<p>Title: {this.state.title}<br/>
+							Description:<br/>
 							{this.state.description}
 						</p>
 						<label htmlFor="add-note">Notes:</label><br/>
