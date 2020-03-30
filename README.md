@@ -47,3 +47,9 @@ Once an account has been created and you are logged in you have the ability to c
 #### JavaScript <img src="/tech-logos/javascript.png" height="50px" width="50px" alt="javscript logo"/>
 
 ### React <img src="/tech-logos/react.png" height="50px" width="50px" alt="react logo"/>
+
+### Css <img src="/tech-logos/css.png" height="50px" width="50px" alt="css logo"/>
+
+### PostgreSQL <img src="/tech-logos/postgre.jpeg" height="50px" width="50px" alt="postgresql logo"/>
+
+### Nodejs <img src="/tech-logos/node.png" height="50px" width="50px" alt="nodejs logo"/>
