@@ -52,19 +52,22 @@ class AddIssue extends Component {
 	}
 
 	validateFields = () => {
-		return this.state.project_id === null || this.state.description.length < 50
+		const descriptionLength = this.state.description.length < 10 || this.state.description.length > 25 
+		return this.state.project_id === null || descriptionLength
 	}
 
 	render(){
+		const descriptionLength = this.state.description.length < 10 || this.state.description.length > 25 
 		config.checkForAuth(this.props.history)
 		return (
 			<form onSubmit={this.handleSubmit} id="add-issue-form">
+				{this.state.project_id === null && <p className="error">Project must be selected</p>}
 				<label htmlFor="select-project"> Select a Project</label>
-					<select id="select-project" onChange={this.setProjectId}> 
-						<option>Select a project</option>
-						{this.generateProjectsOptions()}
-					</select>
-				
+				<select id="select-project" onChange={this.setProjectId}> 
+					<option>Select a project</option>
+					{this.generateProjectsOptions()}
+				</select>
+				{descriptionLength && <p className="error">Description must be more than ten characters but less than 25 characters</p>}
 				<label htmlFor="description">Description of issue:</label><br/>
 				<textarea id="add-note" onChange={this.handleChangeContent} required/><br/>
 				<div className="button-wrapper">
