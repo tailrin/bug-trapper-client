@@ -129,7 +129,7 @@ class Issue extends Component {
 						<label htmlFor="add-note">Notes:</label><br/>
 						<textarea id="add-note" onChange={this.handleChangeContent} required/><br/>
 						{this.validateNote() && <p className="error">Note must contain at least 50 character to add note</p>}
-						<button>Add Note</button>
+						<button disable={this.validateNote()}>Add Note</button>
 						
 					</form>
 					{this.renderNotes()}
