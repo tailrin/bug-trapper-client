@@ -5,7 +5,7 @@ import './Welcome.css';
 class Welcome extends Component {
 
 	componentDidMount = () => {
-		fetch(config.API).then(res => res.json()).then(res => console.log(res))
+		fetch(config.API, config.getOptions('get')).then(res => res.json()).then(res => console.log(res))
 	}
 
 	render(){

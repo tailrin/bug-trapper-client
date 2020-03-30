@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router-dom';
+import CircleLoader from 'react-spinners/CircleLoader'
 import config from '../config'
 import './Login.css';
 
@@ -7,7 +8,8 @@ class Login extends Component {
 	state = {
 		user_name: "",
 		password: "",
-		err: ""
+		err: "",
+		loading: false
 	}
 
 	handleInput = event => {
@@ -39,10 +41,13 @@ class Login extends Component {
 				this.setState({err: res.error})
 			}
 		})
+		this.setState({loading: true})
 
 	}
 
 	render(){
+		let login;
+		if(this.state.loading){login = "Loading"} else {login = "Login"}
 		return (
 
 			<form id="login" onSubmit={this.handleSubmit} > 
@@ -60,7 +65,9 @@ class Login extends Component {
 					<input type="password" id="password" onChange={this.handleInput} className="login-inputs" required/>
 				</div>
 				<div className="button-wrapper">
-					<button type="submit" id="login-button" >Login</button>
+					<button type="submit" id="login-button" disabled={this.state.loading}>
+						{this.state.loading ? <CircleLoader loading={this.state.loading}/>: login}
+					</button>
 					<Link to="/" id="cancel">Cancel</Link>
 				</div>
 			</form>
