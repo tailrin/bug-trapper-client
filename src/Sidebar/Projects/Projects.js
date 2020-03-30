@@ -19,14 +19,13 @@ class Projects extends Component{
         const options = JSON.parse(JSON.stringify(config.getOptions('delete')))
         options.body = JSON.stringify({id: parseInt(event.target.id.split(':')[1])})
         fetch(`${config.API}/projects`, options).then(res => res.json()).then(res => {
-            console.log(res)
+            
             this.props.reloadUser()
         })
     }
 
     handleFilter = event => {
         event.preventDefault();
-        console.log(event.target.id)
         this.props.filterByProject(parseInt(event.target.id.split(':')[1]))
     }
     
@@ -37,9 +36,9 @@ class Projects extends Component{
                     return (
                         <div className="project"  key={i}>
                             <button id={`button-for-project:${project.id}`} className="filter-button" onClick={this.handleFilter}>{project.name}</button>
-                            <button onClick={this.handleDelete} className="delete-button" id={`${project.name}:${project.id}`}>
-                                <div className="button-text">Delete</div>
-                            </button>
+                                <button onClick={this.handleDelete} className="delete-button" id={`${project.name}:${project.id}`} value={project.id}>
+                                    <img src="/imgs/trash.png" alt="trash icon" id={`trash:${project.id}`} value={project.id} className="delete-image"/>
+                                </button>
                         </div>
                     )
                 })}
