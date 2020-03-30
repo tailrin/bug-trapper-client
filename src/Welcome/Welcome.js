@@ -9,10 +9,10 @@ class Welcome extends Component {
 	}
 
 	render(){
-		if(document.getElementById('base').offsetHeight < window.innerHeight ){
+		// if(document.getElementById('base').offsetHeight < window.innerHeight ){
 			
-			document.getElementById('base').style.height = '100%'
-		  }
+		// 	document.getElementById('base').style.height = '100%'
+		//   }
 		return (
 			<>
 			<div id="welcome-screen">Welcome to Bug Trapper<br/>
