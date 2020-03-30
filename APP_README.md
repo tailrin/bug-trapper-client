@@ -44,4 +44,4 @@ Once an account has been created and you are logged in you have the ability to c
 
 ## Tech Stack Used
 
-#### JavaScript ![JavaScript](https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png)
+#### JavaScript ![JavaScript](https://commons.wikimedia.org/wiki/File:Unofficial_JavaScript_logo_2.svg)
