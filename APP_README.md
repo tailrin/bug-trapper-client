@@ -1,4 +1,4 @@
-## Bug Trapper
+# Bug Trapper
 
 [Live App](https://bug-trapper-client.now.sh/)
 
@@ -10,3 +10,29 @@ Once an account has been created and you are logged in you have the ability to c
 ![Create Project Screen](/screenshots/addProject.png)
 ![Create Issue Screen](/screenshots/addIssue.png)
 ![Issue Screen](/screenshots/issue.png)
+
+## Bug Trapper API info
+
+### All endpoint except for '/api/users' and '/api/auth/login/' are protected endpoints and thus must have an 'Authorization' header
+
+#### Create New User Endpoint
+
+[https://bug-trapper-server.herokuapp.com/api/users](https://bug-trapper-server.herokuapp.com/api/users)
+
+### Login Endpoint
+
+[https://bug-trapper-server.herokuapp.com/api/auth/login](https://bug-trapper-server.herokuapp.com/api/auth/login)
+
+### Add or Get Projects Enpoint
+
+#### You can only retrieve projects associated with a particular user and thus must include the query paramater of user_id="your user id here" to get projects
+
+[https://bug-trapper-server.herokuapp.com/projects](https://bug-trapper-server.herokuapp.com/projects)
+
+
+
+### Add or Get Issue Endpoint
+
+#### You can only retrieve issues associated with a particular user and thus must include the query paramater of user_id="your user id here" to get issues
+
+[https://bug-trapper-server.herokuapp.com/issues](https://bug-trapper-server.herokuapp.com/issues)
