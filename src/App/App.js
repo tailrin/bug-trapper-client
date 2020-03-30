@@ -132,7 +132,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/issues/:issue_id" render={({match, history}) => {
               return (
-                <Issue getById={this.getById} match={match} history={history}>
+                <Issue getById={this.getById} match={match} history={history} reloadUser={this.reloadUser}>
                   <Sidebar projects={this.state.projects} reloadUser={this.reloadUser} filterByProject={this.filterByProject}/>
                 </Issue>
               )

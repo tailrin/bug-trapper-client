@@ -53,11 +53,12 @@ class Issue extends Component {
 			field: 'status',
 			field_value: event.target.value
 		}
-		const options = JSON.parse(JSON.stringify(config.getOptions('post')))
+		const options = JSON.parse(JSON.stringify(config.getOptions('put')))
 		options.body = JSON.stringify(data)
 		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
 			this.setState({status: res.status})
 			this.handleDateModified()
+			this.props.reloadUser()
 		}).catch(err => {
 			event.target.value = this.state.status
 		})
@@ -86,7 +87,7 @@ class Issue extends Component {
 
 	handleSubmit = () => {
 		const options = JSON.parse(JSON.stringify(config.getOptions('post')))
-		options.body = JSON.stringify({content: this.state.content, title: this.state.title})
+		options.body = JSON.stringify({content: this.state.content})
 		fetch(`${config.API}/issues/${this.props.match.params.issue_id}`, options).then(res => res.json()).then(res => {
 			console.log(res)
 		})
