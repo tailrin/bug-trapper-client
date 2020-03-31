@@ -115,7 +115,7 @@ class Issue extends Component {
 						<div id="top-line">
 							<span>Date Created: {this.state.date_created.split('T').join(' ').split('.')[0]}</span>
 							<label htmlFor="status" id="status-label">Status:  
-								<select onChange={this.handleStatusChange} id="status">
+								<select onChange={this.handleStatusChange} id="status" value={this.state.status}>
 									<option value="Active">Active</option>
 									<option value="Closed">Closed</option>
 								</select>
